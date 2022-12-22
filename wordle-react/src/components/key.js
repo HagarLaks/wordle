@@ -14,7 +14,7 @@ export function Key({keyVal, bigKey}){
             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
             console.log(currentAttempt)
 
-        }else {
+        } else {
             if (currentAttempt.letterPos > 4) return
             const newGameBoard = [...board]
             newGameBoard[currentAttempt.attempt][currentAttempt.letterPos] = keyVal
@@ -22,7 +22,6 @@ export function Key({keyVal, bigKey}){
             setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
             console.log(currentAttempt)
             
-    
         }
 
         

@@ -16,11 +16,11 @@ export function Game(){
                 {" "}
                 
                 <div className="row">
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===0)? 'curfocus':''} letterPosision={0} attemptNum={0}/>
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===1)? 'curfocus':''} letterPosision={1} attemptNum={0}/>
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===2)? 'curfocus':''} letterPosision={2} attemptNum={0}/>
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===3)? 'curfocus':''} letterPosision={3} attemptNum={0}/>
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===4)? 'curfocus':''} letterPosision={4} attemptNum={0}/>
+                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===0)? 'true':'false'} letterPosision={0} attemptNum={0}/>
+                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===1)? 'true':'false'} letterPosision={1} attemptNum={0}/>
+                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===2)? 'true':'false'} letterPosision={2} attemptNum={0}/>
+                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===3)? 'true':'false'} letterPosision={3} attemptNum={0}/>
+                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===4)? 'true':'false'} letterPosision={4} attemptNum={0}/>
                 </div>
                 <div className="row">
                     <GuessLetter letterPosision={0} attemptNum={1}/>
