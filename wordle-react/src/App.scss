@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   /* display: flex; */
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 body {
@@ -18,8 +18,7 @@ nav {
   width: 100%;
   margin: 0;
   border-bottom: 1px solid grey;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
   place-items: center;
   
 }
@@ -27,7 +26,7 @@ nav {
 nav h1 {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 45px;
 }
 .game {
@@ -42,7 +41,7 @@ nav h1 {
 .board {
   width: 450px;
   height: 550px;
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
@@ -67,6 +66,20 @@ nav h1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.curfocus{
+  flex: 33%;
+  height: 100%;
+  border: 3px solid rgb(11, 11, 11);
+  margin: 5px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
 #correct {
   background-color: #528d4e;
 }
@@ -80,8 +93,8 @@ nav h1 {
 }
 
 .keyboard {
-  width: 700px;
-  height: 300px;
+  width: 600px;
+  height: 250px;
   margin-top: 60px;
 }
 
@@ -117,7 +130,7 @@ nav h1 {
   place-items: center;
   font-size: 20px;
   background-color: grey;
-  color: white;
+  color: rgb(20, 16, 16);
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
@@ -129,60 +142,3 @@ nav h1 {
   background-color: #3a393c;
 }
 
-
-
-.keyboard {
-  grid-area: keyboard;
-  background-color: rgb(255, 255, 255);
-  height: 100%;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: 1fr;
- 
-  margin-top: 2em;
-  margin-bottom: 2em;
-  margin-left: 7em;
-  margin-right: 7em;
-  width: 35em;
-  margin-left: auto;
-  margin-right: auto;
-  height: 9em;
-
-}
-.keyline {
-  display: flex;
-  justify-content: center;
-}
-
-
-.key {
-  gap: 10px;
-  background-color: rgb(168, 158, 158);
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-  align-items: center;
-  
-  margin-top: 5px;
-  margin: 3px;
-  width: 2em;
-  
-  cursor: pointer;
-    
-}
-.key:hover {
-  background-color: rgb(78, 87, 88);
-  font-weight: bold;
-}
-.del {
-width: 3em;
- img {
-  width: 100%;
-  
-  
- }
-}
-
-.enter {
-  width: 4em;
-}

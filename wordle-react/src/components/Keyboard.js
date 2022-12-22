@@ -1,12 +1,29 @@
+import { Key } from "./key";
+import React from "react";
 export function Keboard(){
+    const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+    const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+    const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
     return(
         <div className="keyboard">
 
-             <div className="keyline"><div className="key">Q</div><div className="key">W</div><div className="key">E</div><div className="key">R</div><div className="key">T</div><div className="key">Y</div><div className="key">U</div><div className="key">I</div><div className="key">O</div><div className="key">P</div> </div>
-             <div className="keyline"><div className="keyspace"></div><div className="key">A</div><div className="key">S</div><div className="key">D</div><div className="key">F</div><div className="key">G</div><div className="key">H</div><div className="key">J</div><div className="key">K</div><div className="key">L</div><div className="keyspace"></div></div>
-             <div className="keyline"><div className="keyspace"></div><div className="key enter">Enter</div><div className="key">Z</div><div className="key">X</div><div className="key">C</div><div className="key">V</div><div className="key">B</div><div className="key">N</div><div className="key">M</div><div className="key del">Backspace</div></div>
-                    
+             <div className="line1">{keys1.map((key)=>{
+                return <Key keyVal={key}/>;
+             })} 
+             </div>
+             <div className="line2">{keys2.map((key)=>{
+                return  <Key keyVal={key}/>;
+             })} 
+             </div>
+             <div className="line3">
+             <Key keyVal={"Enter"} bigKey/>
+             {keys3.map((key)=>{
+                return  <Key keyVal={key}/>;
+             })} 
+              <Key keyVal={"Delete"} bigKey/>
+             </div>
+            
         </div>
     )
 }
