@@ -1,11 +1,11 @@
 export function Keboard(){
 
     return(
-        <div class="keyboard">
+        <div className="keyboard">
 
-             <div class="keyline"><div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div><div class="key">T</div><div class="key">Y</div><div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div> </div>
-             <div class="keyline"><div class="keyspace"></div><div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div><div class="key">G</div><div class="key">H</div><div class="key">J</div><div class="key">K</div><div class="key">L</div><div class="keyspace"></div></div>
-             <div class="keyline"><div class="keyspace"></div><div class="key enter">Enter</div><div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div><div class="key">B</div><div class="key">N</div><div class="key">M</div><div class="key del">Backspace</div></div>
+             <div className="keyline"><div className="key">Q</div><div className="key">W</div><div className="key">E</div><div className="key">R</div><div className="key">T</div><div className="key">Y</div><div className="key">U</div><div className="key">I</div><div className="key">O</div><div className="key">P</div> </div>
+             <div className="keyline"><div className="keyspace"></div><div className="key">A</div><div className="key">S</div><div className="key">D</div><div className="key">F</div><div className="key">G</div><div className="key">H</div><div className="key">J</div><div className="key">K</div><div className="key">L</div><div className="keyspace"></div></div>
+             <div className="keyline"><div className="keyspace"></div><div className="key enter">Enter</div><div className="key">Z</div><div className="key">X</div><div className="key">C</div><div className="key">V</div><div className="key">B</div><div className="key">N</div><div className="key">M</div><div className="key del">Backspace</div></div>
                     
         </div>
     )

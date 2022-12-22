@@ -1,12 +1,9 @@
-import { GuessLetter } from "./GuesseLetter";
 
-export function Word(){
 
+export const gameBoard =  [
+                            ["","","","",""],
+                            ["","","g","",""],
+                            ["","","","",""],
+                            ["","","","t",""],
+                            ["","","","",""]];
     
-    return(
-    <div class="word1">
-        <GuessLetter /><GuessLetter/><GuessLetter/><GuessLetter/><GuessLetter/>
-    </div>
-           
-    )
-} 

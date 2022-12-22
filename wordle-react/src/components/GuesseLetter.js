@@ -1,8 +1,12 @@
-export function GuessLetter(inputReference){
+import {useContext} from "react"
+import { AppContext } from "../App"
 
+export function GuessLetter({letterPosision, attemptNum}){
+        const {board} = useContext(AppContext);
+        const letter = board[attemptNum][letterPosision];
 
     return(
-        <input class="tile" ></input>
+        <div className="letter" >{letter}</div>
 
     )
 }
