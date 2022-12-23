@@ -1,4 +1,4 @@
-import {useContext} from "react"
+import {useContext, useRef} from "react"
 import { AppContext } from "../App"
 
 export function GuessLetter({current, letterPosision, attemptNum}){
@@ -6,7 +6,7 @@ export function GuessLetter({current, letterPosision, attemptNum}){
         const letter = board[attemptNum][letterPosision];
 
       const handleKeyDown = (event)=>{
-        if (encodeURIComponent.key === "Backspace"){
+        if (event.key === "Backspace"){
             const newGameBoard = [...board]
             newGameBoard[currentAttempt.attempt][currentAttempt.letterPos] = '';
             setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos -= 1})
@@ -24,13 +24,15 @@ export function GuessLetter({current, letterPosision, attemptNum}){
             setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
             console.log(currentAttempt)
         }   
+        
 
       }
+      
         
 
 
     return(
-        <div className={"letter"} contentEditable={current} onKeyDown={handleKeyDown}>{letter}</div>
+        <div className={`letter ${current}`} onKeyDown={handleKeyDown}>{letter}</div>
 
     )
 }
