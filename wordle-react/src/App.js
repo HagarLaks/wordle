@@ -21,7 +21,7 @@ function App() {
             setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos -= 1})
             console.log(currentAttempt)
     }
-} else if (inputFromKeyOrClick === "Enter"){
+} else if (inputFromKeyOrClick === "Enter"||inputFromKeyOrClick==="ENTER"){
         
 
         if (currentAttempt.letterPos  > 4){
@@ -29,7 +29,6 @@ function App() {
             console.log(currentAttempt)
         }
     } else {
-                console.log('should print')
                 if (currentAttempt.letterPos > 4) {return
                     } else {
                         console.log('got to last else')
@@ -44,6 +43,7 @@ function App() {
 
   const handleKeyDown = (event) => {
     console.log(event.key.toUpperCase());
+    handleInput(event.key.toUpperCase())
 
   }
 
