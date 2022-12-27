@@ -12,7 +12,7 @@ function App() {
   const [ currentAttempt, setCurrentAttempt ] = useState({attempt:0, letterPos:0});
 
   const handleInput = (inputFromKeyOrClick)=>{
-    console.log('got to handleInput', inputFromKeyOrClick, currentAttempt)
+
     if (inputFromKeyOrClick === "Delete" || inputFromKeyOrClick==="BACKSPACE"){
         if (currentAttempt.letterPos > 0){
             
@@ -20,30 +20,27 @@ function App() {
             newGameBoard[currentAttempt.attempt][currentAttempt.letterPos-1] = '';
             setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos -= 1})
             console.log(currentAttempt)
-    }
-} else if (inputFromKeyOrClick === "Enter"||inputFromKeyOrClick==="ENTER"){
-        
-
-        if (currentAttempt.letterPos  > 4){
-            setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
-            console.log(currentAttempt)
         }
     } else {
-                if (currentAttempt.letterPos > 4) {return
-                    } else {
-                        console.log('got to last else')
-                        const newGameBoard = [...board]
-                        newGameBoard[currentAttempt.attempt][currentAttempt.letterPos] = inputFromKeyOrClick
-                        setBoard(newGameBoard)
-                        setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
-                        console.log(currentAttempt)     
-                    }
+            const newGameBoard = [...board]
+            newGameBoard[currentAttempt.attempt][currentAttempt.letterPos] = inputFromKeyOrClick
+            setBoard(newGameBoard)
+            setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
+            console.log(currentAttempt)  
+                        if (currentAttempt.letterPos > 4) {
+                          setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
+                          console.log(currentAttempt)
+              
                             }
 }
+  }
 
   const handleKeyDown = (event) => {
     console.log(event.key.toUpperCase());
-    handleInput(event.key.toUpperCase())
+    if (event.key.toLowerCase() >= 'a' && event.key.toLowerCase() <='z'){
+      handleInput(event.key.toUpperCase())
+    }
+    
 
   }
 
@@ -63,7 +60,7 @@ function App() {
         <h1>Wordle</h1>
       </nav>
       
-      <AppContext.Provider value={{board, setBoard, currentAttempt, setCurrentAttempt}}>
+      <AppContext.Provider value={{board, setBoard, currentAttempt, setCurrentAttempt, handleInput}}>
         <div className="game">
           <Game /> 
           <Keboard/>
