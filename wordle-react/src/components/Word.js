@@ -8,3 +8,4 @@ export const gameBoard =  [
                             ["","","","",""],
                             ["","","","",""]];
     
+export const theWord = ['G','U','E','S','S'];

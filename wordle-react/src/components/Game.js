@@ -6,9 +6,12 @@ import { AppContext } from "../App";
 
  
 export function Game(){
-    const {board, currentAttempt} = useContext(AppContext);
+    const {board, currentAttempt, isFocused} = useContext(AppContext);
     
-        
+    
+
+   
+   
     return(
         
         
@@ -16,7 +19,7 @@ export function Game(){
                 {" "}
                 
                 <div className="row">
-                    <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===0)? 'curfocus':''} letterPosision={0} attemptNum={0}/>
+                    <GuessLetter className={isFocused ? "curfocus" : null}/>
                     <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===1)? 'curfocus':''} letterPosision={1} attemptNum={0}/>
                     <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===2)? 'curfocus':''} letterPosision={2} attemptNum={0}/>
                     <GuessLetter current={(currentAttempt.attempt===0 && currentAttempt.letterPos===3)? 'curfocus':''} letterPosision={3} attemptNum={0}/>
