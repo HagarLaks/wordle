@@ -4,7 +4,7 @@ import { AppContext } from "../App";
 
 export function Key({keyVal, bigKey}){
         
-    const { handleInput , handleToggle} = useContext(AppContext);
+    const { handleInput } = useContext(AppContext);
     const selectLetter = ()=>{
         
         console.log(`handleInput with ${keyVal}`)

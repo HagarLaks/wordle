@@ -13,23 +13,63 @@ body {
   margin: 0;
 }
 
-nav {
-  height: 40px;
-  width: 100%;
-  margin: 0;
-  border-bottom: 1px solid grey;
-  display: flex;
-  justify-content: space-between;
+// nav {
+//   height: 40px;
+//   width: 100%;
+//   margin: 0;
+//   border-bottom: 1px solid grey;
+//   display: flex;
+//   justify-content: space-between;
   
+// }
+
+// nav h1 {
+//   margin: 0;
+//   font-family: Helvetica, Arial, sans-serif;
+//   color: rgb(0, 0, 0);
+//   font-size: 30px;
+  
+// }
+.welcome {
+  margin: 50px;
+  align-items: center;
+  display: grid;
+  button{
+    width: fit-content;
+  }
 }
 
-nav h1 {
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  color: rgb(0, 0, 0);
-  font-size: 30px;
-  
+nav {
+  height: 40px;
+  overflow: hidden;
+  background-color: rgb(48, 82, 150);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  ul {
+    text-align: center;
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    li {
+      color: #ffffff;
+      display: inline;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 17px;
+      .Link {
+        color: #f2f2f2;
+        text-decoration: none;
+        padding: 14px;
+        &:hover {
+          background-color: #111;
+        }
+      }
+    }
+  }
 }
+
 .game {
   width: 100vw;
   height: calc(100vh - 170px);
@@ -90,7 +130,7 @@ nav h1 {
 }
 
 .error {
-  background-color: #3a393c;
+  background-color: #716f75;
 }
 
 .keyboard {
