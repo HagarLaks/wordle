@@ -7,7 +7,7 @@ export function Welcome(){
         <>
             <div className="welcome">
                 <div>Welcome User</div>
-                <button>START</button>
+                <Link to='/game'><button >START</button></Link>
                 </div>
           
                 

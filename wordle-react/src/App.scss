@@ -1,4 +1,8 @@
 
+// /* import bootstrap to set changes */
+// @import "~bootstrap/scss/bootstrap";
+
+
 .App {
   text-align: center;
   background-color: #ffffff;
@@ -32,18 +36,17 @@ body {
 // }
 .welcome {
   margin: 50px;
-  align-items: center;
-  display: grid;
-  button{
-    width: fit-content;
-  }
+  
 }
-
+#wordle{
+  font-weight: bolder;
+  color: #060508;
+}
 nav {
   height: 40px;
   overflow: hidden;
-  background-color: rgb(48, 82, 150);
-
+  background-color: rgb(76, 122, 216);
+  display: flex;
   position: fixed;
   top: 0;
   width: 100%;
@@ -182,4 +185,5 @@ nav {
 #disabled {
   background-color: #3a393c;
 }
+
 

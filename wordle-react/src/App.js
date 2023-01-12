@@ -1,10 +1,9 @@
 import { createContext } from 'react';
-import {Header} from './components/Header'
 import {Welcome} from './pages/Welcome'
 import { Game } from "./components/Game";
-import { Keboard } from './components/Keyboard';
 import { useGame } from './hooks/useGame';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 
 export const AppContext = createContext();
@@ -22,15 +21,17 @@ function App() {
              
                   <nav>
                     <ul>
+                      
                         <li>
-                           <Link className='Link' to='/game'>Game</Link>
+                           <Link className='Link' to='/game'>Wordle</Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link className='Link' to='/'>Welcome</Link>
-                        </li>
+                        </li> */}
+                        
                         <li>
-                          <h1>Wordle</h1>
-                          </li>
+                          <Link className='Link' to='/help'>Help</Link>
+                        </li>
                     </ul>                    
                           
                   </nav>
