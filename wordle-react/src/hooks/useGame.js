@@ -28,7 +28,7 @@ export function useGame(){
               setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
   
               if (currentAttempt.letterPos === 5) {
-                
+                        
                             handleGuess(currentAttempt.attempt)
                             console.log(currentAttempt.attempt)
                             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
