@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
-import { gameBoard, theWord } from "../components/Word";
+import { gameBoard, theWord , feedbackBoard} from "../components/Word";
 
 export function useGame(){
 
     const [board, setBoard] = useState(gameBoard);
     const [ currentAttempt, setCurrentAttempt ] = useState({attempt:0, letterPos:0});
-    const [guessFeedback, setguessFeedback] = useState([]);
+    const [guessFeedback, setguessFeedback] = useState(feedbackBoard);
     
   
   
@@ -28,7 +28,9 @@ export function useGame(){
               setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
   
               if (currentAttempt.letterPos === 5) {
+                
                             handleGuess(currentAttempt.attempt)
+                            console.log(currentAttempt.attempt)
                             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
                             console.log(currentAttempt)
                 
@@ -45,15 +47,13 @@ export function useGame(){
   
     }
   
-    // Enable the keydown event listener
     useEffect(() => {
       window.addEventListener('keydown', handleKeyDown);
   
-      // Return a cleanup function to remove the event listener
       return () => {
         window.removeEventListener('keydown', handleKeyDown);
       };
-    }, [handleKeyDown]);
+    });
 
     const handleGuess = (rowNum)=>{
         const geussArray = ["","","","",""]
@@ -71,12 +71,17 @@ export function useGame(){
            }
         }
         
-        
-        setguessFeedback(geussArray);
+        const newFeedback = [...guessFeedback]
+        newFeedback[rowNum] = geussArray
+        setguessFeedback(newFeedback);
+        console.log(guessFeedback)
+        console.log(feedbackBoard)
         
 
         }
-    
+        // useEffect(()=>{
+          
+        // },[feedbackBoard])
   
   
     return{

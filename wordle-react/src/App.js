@@ -3,12 +3,16 @@ import {Welcome} from './pages/Welcome'
 import { Game } from "./components/Game";
 import { useGame } from './hooks/useGame';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useModal, handleShow } from './hooks/useModal';
+import {Help} from './pages/Help'
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 export const AppContext = createContext();
 
-function App() {
+function App({handleShow}) {
     const wordleApi = useGame();
 
 
@@ -20,10 +24,11 @@ function App() {
           <Router>
              
                   <nav>
+                  
                     <ul>
                       
                         <li>
-                           <Link className='Link' to='/game'>Wordle</Link>
+                           <Link className='Link' to='/'>Wordle</Link>
                         </li>
                         {/* <li>
                           <Link className='Link' to='/'>Welcome</Link>
@@ -34,7 +39,7 @@ function App() {
                         </li>
                     </ul>                    
                           
-                  </nav>
+                    </nav>
                  
               
              
@@ -42,10 +47,12 @@ function App() {
                   <Route path='/' element={<Welcome/>}/>
 
                   <Route path='/game' element={<Game/>}/>
+
+                 
                                         
                     
               </Routes>
-             
+           
           </Router>
 
       </AppContext.Provider>

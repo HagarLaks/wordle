@@ -1,21 +1,24 @@
 
-import { GuessLetter as Cell } from "./Cell";
-import React, { useContext } from "react";
+import { Cell as Cell } from "./Cell";
+import React, { useContext, useRef } from "react";
 import { AppContext } from "../App";
 import {Keyboard} from './Keyboard'
+import {Help} from '../pages/Help'
+import { gameBoard } from "./Word";
+import { Rows } from "./Rows";
 
  
 export function Game(){
     const { currentAttempt} = useContext(AppContext);
-    
    
     return(
         
         <div className="game">
             <div className="board">
                 {" "}
-                
-                <div className="rows">
+                <Rows/>
+                </div>
+                {/* <div className="rows">
                     <Cell current={(currentAttempt.attempt===0 && currentAttempt.letterPos===0)? 'curfocus':''} letterPosision={0} attemptNum={0}/>
                     <Cell current={(currentAttempt.attempt===0 && currentAttempt.letterPos===1)? 'curfocus':''} letterPosision={1} attemptNum={0}/>
                     <Cell current={(currentAttempt.attempt===0 && currentAttempt.letterPos===2)? 'curfocus':''} letterPosision={2} attemptNum={0}/>
@@ -57,8 +60,8 @@ export function Game(){
                     <Cell current={(currentAttempt.attempt===5 && currentAttempt.letterPos===3)? 'curfocus':''} letterPosision={3} attemptNum={5}/>
                     <Cell current={(currentAttempt.attempt===5 && currentAttempt.letterPos===4)? 'curfocus':''} letterPosision={4} attemptNum={5}/>
                 </div>
-            </div>
-            <Keyboard/>
+            </div>*/}
+            <Keyboard/> 
         </div>
            
         

@@ -2,10 +2,11 @@ import React, {useState} from 'react'
 
 export function useModal() {
 
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
   return {
             show,
             setShow,
