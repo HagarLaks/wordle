@@ -1,16 +1,16 @@
 import { createContext } from 'react';
 import {Welcome} from './pages/Welcome'
+import { Help } from './pages/Help';
 import { Game } from "./components/Game";
 import { useGame } from './hooks/useGame';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useModal, handleShow } from './hooks/useModal';
-import {Help} from './pages/Help'
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SignInModal } from './pages/SignInModal';
+import SignInPage from './pages/SignInPage';
 
 
+export const AppContext = createContext(null);
 
-export const AppContext = createContext();
 
 function App({handleShow}) {
     const wordleApi = useGame();
@@ -18,8 +18,9 @@ function App({handleShow}) {
 
   
   return (
-    <div className='App'>
     <AppContext.Provider value={wordleApi}>
+    <div className='App'>
+    
           
           <Router>
              
@@ -28,14 +29,17 @@ function App({handleShow}) {
                     <ul>
                       
                         <li>
-                           <Link className='Link' to='/'>Wordle</Link>
+                           <Link className='Link outline-light' to='/'>Wordle</Link>
                         </li>
                         {/* <li>
                           <Link className='Link' to='/'>Welcome</Link>
                         </li> */}
                         
                         <li>
-                          <Link className='Link' to='/help'>Help</Link>
+                          <Link className='Link' to='/game'><Help/></Link>
+                        </li>
+                        <li>
+                          <Link className='Link' to='/signin'><SignInModal/></Link>
                         </li>
                     </ul>                    
                           
@@ -47,6 +51,9 @@ function App({handleShow}) {
                   <Route path='/' element={<Welcome/>}/>
 
                   <Route path='/game' element={<Game/>}/>
+                  
+                  <Route path='/signin' element={<SignInPage/>}/>
+                  
 
                  
                                         
@@ -55,8 +62,9 @@ function App({handleShow}) {
            
           </Router>
 
-      </AppContext.Provider>
       </div>
+      </AppContext.Provider>
+
     
   );
 }

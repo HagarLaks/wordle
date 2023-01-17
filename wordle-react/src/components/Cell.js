@@ -1,20 +1,23 @@
-import {useContext} from "react"
 import { gameBoard , feedbackBoard} from "./Word";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 
-export function Cell({letterPosision, attemptNum, }){
-        // const {board} = useContext(AppContext);
+
+
+export function Cell({letterPosision, attemptNum}){
+
+
         const letter = gameBoard[attemptNum][letterPosision];
-        
-        // const { currentAttempt} = useContext(AppContext);
+       
+        const color = feedbackBoard[attemptNum][letterPosision]
+
+        const { currentAttempt} = useContext(AppContext);
 
         
-        
-
-
     return(
        
-        <div className={`letter ` }>{letter}</div>
+        <div className={`letter ${color} `}>{letter}</div>
 
     )
 }

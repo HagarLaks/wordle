@@ -5,8 +5,10 @@ export function useGame(){
 
     const [board, setBoard] = useState(gameBoard);
     const [ currentAttempt, setCurrentAttempt ] = useState({attempt:0, letterPos:0});
-    const [guessFeedback, setguessFeedback] = useState(feedbackBoard);
-    
+    const [guessFeedback, setGuessFeedback] = useState(feedbackBoard);
+    const [success, setSeccess] = useState(false)
+    const [fail, SetFail] = useState(false)
+
   
   
     const handleInput = (inputFromKeyOrClick)=>{
@@ -33,6 +35,7 @@ export function useGame(){
                             console.log(currentAttempt.attempt)
                             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
                             console.log(currentAttempt)
+
                 
                               }
   }
@@ -56,7 +59,7 @@ export function useGame(){
     });
 
     const handleGuess = (rowNum)=>{
-        const geussArray = ["","","","",""]
+        const geussArray = feedbackBoard[rowNum]
         const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
         console.log(recentGuesse)
         for (let i = 0; i < 5;i+=1) {
@@ -73,24 +76,46 @@ export function useGame(){
         
         const newFeedback = [...guessFeedback]
         newFeedback[rowNum] = geussArray
-        setguessFeedback(newFeedback);
-        console.log(guessFeedback)
-        console.log(feedbackBoard)
+        console.log(geussArray, rowNum)
+        console.log("newFeedback", newFeedback)
+        setGuessFeedback(newFeedback);
+        handleSuccessorFail(rowNum)
+        console.log("arrived here?? rownum", rowNum)      
         
 
         }
-        // useEffect(()=>{
+   
+        const handleSuccessorFail= (rowNum)=>{
+          console.log(feedbackBoard[rowNum])
+
+          const feedbackCheck = new Set(feedbackBoard[rowNum]);
+          console.log(feedbackCheck.size)
+
+          if (feedbackCheck.size===1&&feedbackCheck.has("correct")){
+            setSeccess(true)
+            console.log(success, "success shold be true")
+
           
-        // },[feedbackBoard])
+            
+          } else if (currentAttempt.attempt === 6  && (feedbackCheck.has("error")||feedbackCheck.has("almost"))){
+            SetFail(true)
+          
+
+        }
+      }
+     
   
   
     return{
+    success,
+    fail,
     board,
     guessFeedback,
     currentAttempt,
     handleInput,
     handleKeyDown,
-    handleGuess
+    handleGuess,
+    handleSuccessorFail
 
   }  
 }
