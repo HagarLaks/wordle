@@ -7,6 +7,7 @@ import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SignInModal } from './pages/SignInModal';
 import SignInPage from './pages/SignInPage';
+import { LogOut } from './components/logOut';
 
 
 export const AppContext = createContext(null);
@@ -39,7 +40,7 @@ function App({handleShow}) {
                           <Link className='Link' to='/game'><Help/></Link>
                         </li>
                         <li>
-                          <Link className='Link' to='/signin'><SignInModal/></Link>
+                          <Link className='Link' to='/'><LogOut/></Link>
                         </li>
                     </ul>                    
                           

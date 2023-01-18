@@ -13,7 +13,7 @@ export default function SuccessDialog() {
     >
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Succuss!</Modal.Title>
+          <Modal.Title>Success!</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -22,10 +22,7 @@ export default function SuccessDialog() {
           <p> the word is {theWord} </p>
         </Modal.Body>
 
-        {/* <Modal.Footer> */}
-          {/* <Button variant="secondary">Close</Button> */}
-          {/* <Button variant="primary">Save changes</Button> */}
-        {/* </Modal.Footer> */}
+       
       </Modal.Dialog>
     </div>
   )

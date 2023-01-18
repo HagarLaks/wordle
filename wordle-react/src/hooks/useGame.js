@@ -8,6 +8,8 @@ export function useGame(){
     const [guessFeedback, setGuessFeedback] = useState(feedbackBoard);
     const [success, setSeccess] = useState(false)
     const [fail, SetFail] = useState(false)
+    const [user, setUser] = useState(null)
+    const [userSubmitted,setUserSubmitted] = useState(false)
 
   
   
@@ -29,7 +31,7 @@ export function useGame(){
   
               setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos += 1})
   
-              if (currentAttempt.letterPos === 5) {
+                  if (currentAttempt.letterPos === 5) {
                         
                             handleGuess(currentAttempt.attempt)
                             console.log(currentAttempt.attempt)
@@ -38,7 +40,7 @@ export function useGame(){
 
                 
                               }
-  }
+            }
     }
   
     const handleKeyDown = (event) => {
@@ -50,14 +52,6 @@ export function useGame(){
   
     }
   
-    useEffect(() => {
-      window.addEventListener('keydown', handleKeyDown);
-  
-      return () => {
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    });
-
 
 
     const handleGuess = (rowNum)=>{
@@ -98,10 +92,15 @@ export function useGame(){
           SetFail(true)
         }
     }
-     
+
+    
   
   
     return{
+      userSubmitted,
+      setUserSubmitted,
+      user,
+      setUser,
     success,
     fail,
     board,
@@ -110,7 +109,8 @@ export function useGame(){
     handleInput,
     handleKeyDown,
     handleGuess,
-    handleSuccessorFail
+    handleSuccessorFail,
+    
 
   }  
 }

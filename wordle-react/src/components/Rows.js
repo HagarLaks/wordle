@@ -1,11 +1,18 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { gameBoard } from './Word'
 import { Cell } from './Cell'
 import { AppContext } from "../App"
 
 
 export function Rows() {
-  const {guessFeedback} = useContext(AppContext)
+  const {guessFeedback, handleKeyDown} = useContext(AppContext)
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  });
 
   
   

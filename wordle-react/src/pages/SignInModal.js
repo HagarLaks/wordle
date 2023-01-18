@@ -1,52 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useContext , useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { AppContext } from '../App';
 
 
 export function SignInModal() {
+const {setUser, user, setUserSubmitted, userSubmitted} = useContext(AppContext)
+
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [user]);
+
+ 
+
+let input = "";
+const handleInput = (e)=>{
+  input = e.target.value;
+
+}
+const handleUserSubmit = ()=>{
+  setUser(input)
+  setUserSubmitted(true)
+    console.log("submit", user)
+    handleClose()
+
+  }
+  console.log("submit", user)
+
+
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow}>
-        Sign In
-      </Button>
-      <Modal className='modal' show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Sign In</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          For saving your scores and statistics please sign in
-          <Form>
-      <Form.Group className="mb-3" controlId="formBasicText">
-        <Form.Label>User Name</Form.Label>
-        <Form.Control type="text" placeholder="Name" required />
-        <Form.Text className="text-muted">
-          Enter your name
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" required />
-      </Form.Group>
+     <Button variant="outline-light" onClick={handleShow}>
+            Sign In
+          </Button>
+          <Modal className='modal' show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Sign In</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              For saving your scores and statistics please sign in
+              <form method="post" >
+                    <ul>
+                      <li>
+                        <label htmlFor="name">User name:</label>
+                        <input type="text" id="name" name="user_name" onChange={handleInput}/>
+                      </li>
+                      <br/>
+                      <div className="button">
+                    <button type="submit" onClick={handleUserSubmit}>Sign in</button>
+                  </div>
+                    </ul>
+            </form>
+              </Modal.Body>
+          
+          </Modal>
       
-      <Button variant="primary" type="submit" onClick={handleClose}>
-        Sign In
-      </Button>
-    </Form>
-          </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            sign In
-          </Button> */}
-        {/* </Modal.Footer> */}
-      </Modal>
+      
+      
     </>
   );
 }
