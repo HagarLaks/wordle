@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import { gameBoard, theWord , feedbackBoard} from "../components/Word";
+import { gameBoard, theWord , feedbackBoard, allKeys} from "../components/Word";
 
 export function useGame(){
 
@@ -17,11 +17,9 @@ export function useGame(){
   
       if (inputFromKeyOrClick === "Delete" || inputFromKeyOrClick==="BACKSPACE"){
           if (currentAttempt.letterPos > 0){
-              console.log('backspace or delete')
               const newGameBoard = [...board]
               newGameBoard[currentAttempt.attempt][currentAttempt.letterPos-1] = '';
               setCurrentAttempt({...currentAttempt, letterPos: currentAttempt.letterPos -= 1})
-              console.log('currentAttempt', currentAttempt)
           }
       } else {
               const newGameBoard = [...board]
@@ -34,9 +32,8 @@ export function useGame(){
                   if (currentAttempt.letterPos === 5) {
                         
                             handleGuess(currentAttempt.attempt)
-                            console.log(currentAttempt.attempt)
+                            handleColorKeys(currentAttempt.attempt)
                             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
-                            console.log(currentAttempt)
 
                 
                               }
@@ -57,10 +54,8 @@ export function useGame(){
     const handleGuess = (rowNum)=>{
         const geussArray = feedbackBoard[rowNum]
         const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
-        console.log(recentGuesse)
         for (let i = 0; i < 5;i+=1) {
            const indexToCompare = theWord.indexOf(gameBoard[rowNum][i])
-           console.log(indexToCompare)
            if (indexToCompare === -1){
              geussArray[i] = "error"
            } else if (theWord[i] === gameBoard[rowNum][i]){
@@ -72,8 +67,6 @@ export function useGame(){
         
         const newFeedback = [...guessFeedback]
         newFeedback[rowNum] = geussArray
-        console.log(geussArray, rowNum)
-        console.log("newFeedback", newFeedback)
         setGuessFeedback(newFeedback);
         setTimeout(() => {
           handleSuccessorFail(rowNum)
@@ -94,7 +87,16 @@ export function useGame(){
     }
 
     const handleColorKeys = (rowNum)=>{
+      const geussArray = feedbackBoard[rowNum]
+      const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
       
+      const recentFeedback = feedbackBoard[rowNum]
+      Object.keys(allKeys).forEach((letter)=>{
+        if (recentGuesse.includes(letter)){
+          const tempIndex = recentGuesse.indexOf(letter)
+          allKeys[letter] = recentFeedback[tempIndex]
+        } 
+      })
 
     }
 

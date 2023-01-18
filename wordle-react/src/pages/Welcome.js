@@ -14,18 +14,17 @@ export function Welcome(){
 
     return (
         <>
-            {/* <div className="welcome"> */}
         
             <Container className="welcome" fluid>
                 <h1>Welcome {user===null? "Guest" : user} </h1>
                 
-                <Link to='/game'> <button className="wbutton" size="lg" >
-                <Button variant="outline-light" >
-                        Start as a guest
+                <Link to='/game'> 
+                <Button variant="light" >
+                        Start
                     </Button>
-                 </button></Link>
+                </Link>
                  <div>
-                    <Link to='/'><button className="wbutton" size="lg"><LogOut/></button></Link>
+                    <Link to='/'><LogOut/></Link>
                  </div>
                 
           

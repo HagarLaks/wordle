@@ -1,12 +1,11 @@
 import React, { useState, useContext , useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 import { AppContext } from '../App';
 
 
 export function SignInModal() {
-const {setUser, user, setUserSubmitted, userSubmitted} = useContext(AppContext)
+const {setUser, user, setUserSubmitted} = useContext(AppContext)
 
 
   const [show, setShow] = useState(false);
@@ -34,7 +33,7 @@ const handleUserSubmit = ()=>{
 
   return (
     <>
-     <Button variant="outline-light" onClick={handleShow}>
+     <Button variant="light" onClick={handleShow}>
             Sign In
           </Button>
           <Modal className='modal' show={show} onHide={handleClose}>

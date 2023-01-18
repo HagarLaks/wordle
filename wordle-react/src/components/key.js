@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
-
 import { AppContext } from "../App";
+import { allKeys } from "./Word";
 
-export function Key({color, keyVal, bigKey}){
+export function Key({ keyVal, bigKey}){
         
     const { handleInput } = useContext(AppContext);
     const selectLetter = ()=>{
@@ -14,6 +14,7 @@ export function Key({color, keyVal, bigKey}){
         }
     }
     
+    const color = allKeys[keyVal]
 
 
     return(

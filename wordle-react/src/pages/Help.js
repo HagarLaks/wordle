@@ -19,7 +19,10 @@ export function Help() {
         <Modal.Header closeButton>
           <Modal.Title>How to play?</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <p>Guess the word in 6 tries. After each guess, the color of the tiles will
+        change to show how close your guess was to the word.
+            </p></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Back to game

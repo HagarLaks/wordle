@@ -5,15 +5,13 @@ import { Game } from "./components/Game";
 import { useGame } from './hooks/useGame';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SignInModal } from './pages/SignInModal';
-import SignInPage from './pages/SignInPage';
 import { LogOut } from './components/logOut';
 
 
 export const AppContext = createContext(null);
 
 
-function App({handleShow}) {
+function App() {
     const wordleApi = useGame();
 
 
@@ -51,8 +49,7 @@ function App({handleShow}) {
 
                   <Route path='/game' element={<Game/>}/>
                   
-                  <Route path='/signin' element={<SignInPage/>}/>
-                  
+                
 
                  
                                         

@@ -1,7 +1,6 @@
-import React, { useState, useContext , useEffect} from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
+
 import { AppContext } from '../App';
 import { SignInModal } from '../pages/SignInModal';
 
@@ -18,7 +17,7 @@ const handleLogOut = ()=>{
 
   return (
     <>
-     {((userSubmitted===false)&&(user===null))? <SignInModal/> : <Button variant="outline-light" onClick={handleLogOut}>
+     {((userSubmitted===false)&&(user===null))? <SignInModal/> : <Button variant="light" onClick={handleLogOut}>
             Log Out
           </Button>}
      </>
