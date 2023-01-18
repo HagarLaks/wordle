@@ -24,9 +24,7 @@ export function Help() {
           <Button variant="secondary" onClick={handleClose}>
             Back to game
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
+      
         </Modal.Footer>
       </Modal>
     </>

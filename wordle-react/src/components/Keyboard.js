@@ -1,17 +1,19 @@
 import { Key } from "./key";
 import React from "react";
+import { allKeys} from "./Word";
 
 
 export function Keyboard(){
-    const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
-    const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
-    const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
+   const keys1 = allKeys[0]
+   const keys2 = allKeys[1]
+   const keys3 = allKeys[2]
+   
     return(
         <div className="keyboard">
 
              <div className="line1">{keys1.map((key)=>{
-                return <Key key={key} keyVal={key}/>;
+                return <Key  key={key} keyVal={key}/>;
              })} 
              </div>
              <div className="line2">{keys2.map((key)=>{

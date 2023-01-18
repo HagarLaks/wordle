@@ -26,13 +26,10 @@ const handleInput = (e)=>{
 
 }
 const handleUserSubmit = ()=>{
-  setUser(input)
-  setUserSubmitted(true)
-    console.log("submit", user)
-    handleClose()
-
+  setUser(input);
+  setUserSubmitted(true);
+    handleClose();
   }
-  console.log("submit", user)
 
 
   return (

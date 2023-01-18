@@ -14,7 +14,8 @@ export function Cell({letterPosision, attemptNum}){
 
         const { currentAttempt} = useContext(AppContext);
 
-        
+        const feedbackWithLetter = {theLetter:letter, theColor: color}
+
     return(
        
         <div className={`letter ${color} `}>{letter}</div>

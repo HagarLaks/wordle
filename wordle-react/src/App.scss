@@ -33,9 +33,14 @@ body {
   
 // }
 .welcome {
-  margin: 50px;
+  margin: 100px;
+  display: grid;
+
   
 }
+.wbutton{
+    background-color: rgb(14, 44, 98);
+  }
 #wordle{
   font-weight: bolder;
   color: #060508;
@@ -129,17 +134,7 @@ nav {
 .modal{
 position:sticky; 
 }
-.correct {
-  background-color: #528d4e;
-}
 
-.almost {
-  background-color: #b49f39;
-}
-
-.error {
-  background-color: #716f75;
-}
 
 .keyboard {
   width: 600px;
@@ -178,7 +173,7 @@ position:sticky;
   display: grid;
   place-items: center;
   font-size: 20px;
-  background-color: grey;
+  background-color: rgb(168, 157, 157);
   color: rgb(20, 16, 16);
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
@@ -190,7 +185,17 @@ position:sticky;
 #disabled {
   background-color: #3a393c;
 }
+.correct {
+  background-color: #528d4e;
+}
 
+.almost {
+  background-color: #b49f39;
+}
+
+.error {
+  background-color: #716f75;
+}
 
 // /* import bootstrap to set changes */
 

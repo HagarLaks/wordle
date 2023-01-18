@@ -93,14 +93,19 @@ export function useGame(){
         }
     }
 
+    const handleColorKeys = (rowNum)=>{
+      
+
+    }
+
     
   
   
     return{
-      userSubmitted,
-      setUserSubmitted,
-      user,
-      setUser,
+    userSubmitted,
+    setUserSubmitted,
+    user,
+    setUser,
     success,
     fail,
     board,

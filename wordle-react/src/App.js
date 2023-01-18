@@ -32,9 +32,7 @@ function App({handleShow}) {
                         <li>
                            <Link className='Link outline-light' to='/'>Wordle</Link>
                         </li>
-                        {/* <li>
-                          <Link className='Link' to='/'>Welcome</Link>
-                        </li> */}
+                       
                         
                         <li>
                           <Link className='Link' to='/game'><Help/></Link>

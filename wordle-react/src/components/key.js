@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 
 import { AppContext } from "../App";
 
-export function Key({keyVal, bigKey}){
+export function Key({color, keyVal, bigKey}){
         
     const { handleInput } = useContext(AppContext);
     const selectLetter = ()=>{
@@ -11,14 +11,13 @@ export function Key({keyVal, bigKey}){
         if (keyVal !== 'Enter'){
             handleInput(keyVal);
             
-           
         }
     }
     
 
 
     return(
-        <div className={`key `}  id={bigKey && "big"} onClick={selectLetter} >{keyVal}</div>
+        <div className={`key ${color}`}  id={bigKey && "big"} onClick={selectLetter} >{keyVal}</div>
     )
 
 }
