@@ -2,6 +2,7 @@ import React , {useState, useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../App';
+import { theWord } from '../components/Word';
 
 export default function FailDialog() {
     const [show, setShow] = useState(false);
@@ -21,17 +22,14 @@ export default function FailDialog() {
     >
       <Modal.Dialog>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Fail</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+          <p>You didn't find the word. Try next Time</p>
+          <p> the word is {theWord} </p>
         </Modal.Body>
 
-        <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save changes</Button>
-        </Modal.Footer>
       </Modal.Dialog>
     </div>
     </>

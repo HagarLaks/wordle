@@ -7,17 +7,18 @@ import {Help} from '../pages/Help'
 import { gameBoard } from "./Word";
 import { Rows } from "./Rows";
 import SuccessDialog from "../pages/SuccessDialog";
+import FailDialog from "../pages/FailDialog";
 
  
 export function Game(){
-    const { success } = useContext(AppContext);
+    const { success, fail } = useContext(AppContext);
    
     return(
         
         <div className="game">
             <div className="board">
                 {" "}
-                {success?<SuccessDialog/> : <Rows/>}
+                {success?<SuccessDialog/> : fail? <FailDialog/> :<Rows/>}
                 </div>
             <Keyboard/> 
         </div>

@@ -58,6 +58,8 @@ export function useGame(){
       };
     });
 
+
+
     const handleGuess = (rowNum)=>{
         const geussArray = feedbackBoard[rowNum]
         const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
@@ -79,30 +81,23 @@ export function useGame(){
         console.log(geussArray, rowNum)
         console.log("newFeedback", newFeedback)
         setGuessFeedback(newFeedback);
-        handleSuccessorFail(rowNum)
-        console.log("arrived here?? rownum", rowNum)      
+        setTimeout(() => {
+          handleSuccessorFail(rowNum)
+        }, 1000);
         
 
         }
    
         const handleSuccessorFail= (rowNum)=>{
-          console.log(feedbackBoard[rowNum])
 
-          const feedbackCheck = new Set(feedbackBoard[rowNum]);
-          console.log(feedbackCheck.size)
+          if ((theWord.join(""))===(gameBoard[rowNum].join(""))){
 
-          if (feedbackCheck.size===1&&feedbackCheck.has("correct")){
             setSeccess(true)
-            console.log(success, "success shold be true")
-
-          
-            
-          } else if (currentAttempt.attempt === 6  && (feedbackCheck.has("error")||feedbackCheck.has("almost"))){
-            SetFail(true)
-          
-
-        }
       }
+        if ((currentAttempt.attempt===6)&&(theWord.join(""))!==(gameBoard[rowNum].join(""))){
+          SetFail(true)
+        }
+    }
      
   
   
