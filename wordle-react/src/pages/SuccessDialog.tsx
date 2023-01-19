@@ -5,7 +5,7 @@ import { AppContext } from '../App';
 import { theWord } from '../components/Word';
 
 export default function SuccessDialog() {
-  const { currentAttempt } = useContext(AppContext);
+  const { currentAttempt } = useContext<null|number | string>(AppContext);
   return (
     <div
       className="modal show"

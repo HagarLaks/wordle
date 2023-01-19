@@ -7,7 +7,6 @@ import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LogOut } from './components/logOut';
 
-
 export const AppContext = createContext(null);
 
 
@@ -20,7 +19,6 @@ function App() {
     <AppContext.Provider value={wordleApi}>
     <div className='App'>
     
-          
           <Router>
              
                   <nav>

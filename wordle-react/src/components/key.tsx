@@ -2,6 +2,8 @@ import React, {useContext} from "react";
 import { AppContext } from "../App";
 import { allKeys } from "./Word";
 
+
+
 export function Key({ keyVal, bigKey}){
         
     const { handleInput } = useContext(AppContext);

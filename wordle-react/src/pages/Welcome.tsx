@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 
 export function Welcome(){
 
-    const { user} = useContext(AppContext)
+    const { user } = useContext(AppContext)
 
 
     return (

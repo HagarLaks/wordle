@@ -1,19 +1,24 @@
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import { gameBoard, theWord , feedbackBoard, allKeys} from "../components/Word";
 
+interface IUseGame{
+      
+}
 export function useGame(){
 
-    const [board, setBoard] = useState(gameBoard);
-    const [ currentAttempt, setCurrentAttempt ] = useState({attempt:0, letterPos:0});
-    const [guessFeedback, setGuessFeedback] = useState(feedbackBoard);
-    const [success, setSeccess] = useState(false)
-    const [fail, SetFail] = useState(false)
-    const [user, setUser] = useState(null)
-    const [userSubmitted,setUserSubmitted] = useState(false)
 
+
+    const [board, setBoard] = useState<string[][]>(gameBoard);
+    const [ currentAttempt, setCurrentAttempt ] = useState({attempt:0, letterPos:0});
+    const [guessFeedback, setGuessFeedback] = useState<string[][]>(feedbackBoard);
+    const [success, setSeccess] = useState<boolean>(false)
+    const [fail, SetFail] = useState<boolean>(false)
+    const [user, setUser] = useState<string | null>(null)
+    const [userSubmitted,setUserSubmitted] = useState<boolean>(false)
+
+    
   
-  
-    const handleInput = (inputFromKeyOrClick)=>{
+    const handleInput = (inputFromKeyOrClick:string)=>{
   
       if (inputFromKeyOrClick === "Delete" || inputFromKeyOrClick==="BACKSPACE"){
           if (currentAttempt.letterPos > 0){
@@ -40,7 +45,7 @@ export function useGame(){
             }
     }
   
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event:KeyboardEvent) => {
       
       if ((event.key.toLowerCase() >= 'a' && event.key.toLowerCase() <='z'&& event.key.length===1)||event.key==='Backspace'){
         handleInput(event.key.toUpperCase())
@@ -51,9 +56,9 @@ export function useGame(){
   
 
 
-    const handleGuess = (rowNum)=>{
+    const handleGuess = (rowNum:number)=>{
         const geussArray = feedbackBoard[rowNum]
-        const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
+        // const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
         for (let i = 0; i < 5;i+=1) {
            const indexToCompare = theWord.indexOf(gameBoard[rowNum][i])
            if (indexToCompare === -1){
@@ -75,7 +80,7 @@ export function useGame(){
 
         }
    
-        const handleSuccessorFail= (rowNum)=>{
+        const handleSuccessorFail= (rowNum:number)=>{
 
           if ((theWord.join(""))===(gameBoard[rowNum].join(""))){
 
@@ -86,7 +91,7 @@ export function useGame(){
         }
     }
 
-    const handleColorKeys = (rowNum)=>{
+    const handleColorKeys = (rowNum:number)=>{
       const geussArray = feedbackBoard[rowNum]
       const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
       
