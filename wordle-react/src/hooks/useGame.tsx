@@ -59,9 +59,12 @@ export function useGame(){
     }
   
     const handleKeyDown = (event:KeyboardEvent) => {
-      
+
+
       if ((event.key.toLowerCase() >= 'a' && event.key.toLowerCase() <='z'&& event.key.length===1)||event.key==='Backspace'){
+        console.log("inIf")
         handleInput(event.key.toUpperCase())
+      
       }
       
   
@@ -92,6 +95,7 @@ export function useGame(){
         
 
         }
+        
    
         const handleSuccessorFail= (rowNum:number)=>{
 
