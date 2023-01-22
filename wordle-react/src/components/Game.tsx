@@ -8,10 +8,10 @@ import { gameBoard } from "./Word";
 import { Rows } from "./Rows";
 import SuccessDialog from "../pages/SuccessDialog";
 import FailDialog from "../pages/FailDialog";
-
+import { useGameType } from "../hooks/useGame";
  
 export function Game(){
-    const { success, fail } = useContext(AppContext);
+    const { success, fail } = useContext<useGameType>(AppContext);
    
     return(
         

@@ -6,8 +6,10 @@ import { useGame } from './hooks/useGame';
 import { Link, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { LogOut } from './components/logOut';
+import { useGameType } from './hooks/useGame';
 
-export const AppContext = createContext(null);
+
+export const AppContext = createContext<null | useGameType| any>(null   );
 
 
 function App() {

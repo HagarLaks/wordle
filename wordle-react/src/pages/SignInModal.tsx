@@ -2,10 +2,10 @@ import React, { useState, useContext , useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../App';
-
+import { useGameType } from '../hooks/useGame';
 
 export function SignInModal() {
-const {setUser, user, setUserSubmitted} = useContext(AppContext)
+const {setUser, user, setUserSubmitted} = useContext<useGameType>(AppContext)
 
 
   const [show, setShow] = useState(false);
@@ -20,8 +20,9 @@ const {setUser, user, setUserSubmitted} = useContext(AppContext)
  
 
 let input = "";
-const handleInput = (e)=>{
+const handleInputUser = (e) =>{
   input = e.target.value;
+
 
 }
 const handleUserSubmit = ()=>{
@@ -46,7 +47,7 @@ const handleUserSubmit = ()=>{
                     <ul>
                       <li>
                         <label htmlFor="name">User name:</label>
-                        <input type="text" id="name" name="user_name" onChange={handleInput}/>
+                        <input type="text" id="name" name="user_name" onChange={handleInputUser}/>
                       </li>
                       <br/>
                       <div className="button">

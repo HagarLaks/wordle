@@ -4,12 +4,14 @@ import { AppContext } from "../App"
 import { LogOut } from "../components/logOut"
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import { IUseGame } from "../types/GameTypes";
+import { useGameType } from "../hooks/useGame";
 
 
 
 export function Welcome(){
 
-    const { user } = useContext(AppContext)
+    const { user } = useContext<useGameType>(AppContext)
 
 
     return (

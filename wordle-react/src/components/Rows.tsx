@@ -2,10 +2,16 @@ import React, {useContext, useEffect} from 'react'
 import { gameBoard } from './Word'
 import { Cell } from './Cell'
 import { AppContext } from "../App"
+import { type } from '@testing-library/user-event/dist/type'
+import { useGameType } from '../hooks/useGame'
 
-
+export type letterProps={
+  letterPossision:number
+  attemptNum: number
+  key: string
+}
 export function Rows() {
-  const {guessFeedback, handleKeyDown} = useContext(AppContext)
+  const {guessFeedback, handleKeyDown} = useContext<useGameType>(AppContext)
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 

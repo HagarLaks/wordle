@@ -1,11 +1,25 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { useState} from "react";
 import { gameBoard, theWord , feedbackBoard, allKeys} from "../components/Word";
+import { IcurrentAttempt } from "../types/GameTypes";
+  
 
-interface IUseGame{
-      
-}
+export type useGameType ={
+  userSubmitted:string
+   user:string
+  success:boolean
+  fail:boolean
+  board: string[][]
+  guessFeedback: string[][]
+  currentAttempt: IcurrentAttempt 
+  handleInput: (inputFromKeyOrClick: string)=> void
+  handleKeyDown: (event:KeyboardEvent)=> void
+  setUser: React.Dispatch<React.SetStateAction<string | null>>
+  setUserSubmitted: React.Dispatch<React.SetStateAction<boolean>>
+  
+} 
+
 export function useGame(){
-
 
 
     const [board, setBoard] = useState<string[][]>(gameBoard);
@@ -121,7 +135,7 @@ export function useGame(){
     handleInput,
     handleKeyDown,
     handleGuess,
-    handleSuccessorFail,
+    handleSuccessorFail
     
 
   }  

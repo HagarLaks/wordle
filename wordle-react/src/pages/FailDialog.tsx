@@ -3,13 +3,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../App';
 import { theWord } from '../components/Word';
+import { useGameType } from '../hooks/useGame';
 
 export default function FailDialog() {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const { currentAttempt} = useContext(AppContext);
+  
 
 
   return (

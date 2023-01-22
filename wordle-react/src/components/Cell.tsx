@@ -1,6 +1,8 @@
 import { gameBoard , feedbackBoard} from "./Word";
-import { useContext } from "react";
-import { AppContext } from "../App";
+// import { useContext } from "react";
+// import { AppContext } from "../App";
+import { useGameType } from "../hooks/useGame";
+import { letterProps } from "./Rows";
 
 
 
@@ -12,9 +14,9 @@ export function Cell({letterPosision, attemptNum}){
        
         const color = feedbackBoard[attemptNum][letterPosision]
 
-        const { currentAttempt} = useContext(AppContext);
+        // const { currentAttempt} = useContext(AppContext);
 
-        const feedbackWithLetter = {theLetter:letter, theColor: color}
+        // const feedbackWithLetter = {theLetter:letter, theColor: color}
 
     return(
        

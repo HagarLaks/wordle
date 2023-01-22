@@ -1,12 +1,14 @@
-import React, {useContext} from "react";
+import {useContext} from "react";
 import { AppContext } from "../App";
+// import { IUseGame } from "../types/GameTypes";
 import { allKeys } from "./Word";
+import { useGameType } from "../hooks/useGame";
 
 
 
 export function Key({ keyVal, bigKey}){
         
-    const { handleInput } = useContext(AppContext);
+    const { handleInput } = useContext<useGameType>(AppContext);
     const selectLetter = ()=>{
         
         console.log(`handleInput with ${keyVal}`)
