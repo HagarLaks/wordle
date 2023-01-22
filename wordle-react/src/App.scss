@@ -1,4 +1,6 @@
 
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 .App {
   text-align: center;
   background-color: #ffffff;
@@ -13,22 +15,71 @@ body {
   margin: 0;
 }
 
-nav {
-  height: 60px;
-  width: 100%;
-  margin: 0;
-  border-bottom: 1px solid grey;
+// nav {
+//   height: 40px;
+//   width: 100%;
+//   margin: 0;
+//   border-bottom: 1px solid grey;
+//   display: flex;
+//   justify-content: space-between;
+  
+// }
+
+// nav h1 {
+//   margin: 0;
+//   font-family: Helvetica, Arial, sans-serif;
+//   color: rgb(0, 0, 0);
+//   font-size: 30px;
+  
+// }
+.welcome {
+  margin: 100px;
   display: grid;
-  place-items: center;
+  
+
   
 }
-
-nav h1 {
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  color: rgb(0, 0, 0);
-  font-size: 45px;
+.wbutton{
+    background-color: rgb(14, 44, 98);
+  }
+#wordle{
+  font-weight: bolder;
+  color: #060508;
 }
+nav {
+  height: 50px;
+  overflow: hidden;
+  background-color: rgb(76, 122, 216);
+  display: flex;
+  text-align: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  ul {
+    text-align: center;
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    li {
+      color: #ffffff;
+      display: inline;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 17px;
+      .Link {
+        color: #f2f2f2;
+        text-decoration: none;
+        padding: 14px;
+        &:hover {
+          background-color: #111;
+        }
+      }
+    }
+  }
+}
+
 .game {
   width: 100vw;
   height: calc(100vh - 170px);
@@ -46,7 +97,9 @@ nav h1 {
   flex-direction: column;
 }
 
-.row {
+.rows {
+  height: 100%;
+
   flex: 33%;
   display: flex;
   flex-direction: row;
@@ -79,22 +132,14 @@ nav h1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-#correct {
-  background-color: #528d4e;
+.modal{
+position:sticky; 
 }
 
-#almost {
-  background-color: #b49f39;
-}
-
-#error {
-  background-color: #3a393c;
-}
 
 .keyboard {
   width: 600px;
-  height: 250px;
+  height: 150px;
   margin-top: 60px;
 }
 
@@ -129,16 +174,29 @@ nav h1 {
   display: grid;
   place-items: center;
   font-size: 20px;
-  background-color: grey;
+  background-color: rgb(168, 157, 157);
   color: rgb(20, 16, 16);
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
 
-#big {
+.big {
   width: 100px;
 }
 #disabled {
   background-color: #3a393c;
 }
+.correct {
+  background-color: #528d4e;
+}
+
+.almost {
+  background-color: #b49f39;
+}
+
+.error {
+  background-color: #716f75;
+}
+
+// /* import bootstrap to set changes */
 
