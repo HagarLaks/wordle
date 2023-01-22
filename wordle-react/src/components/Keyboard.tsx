@@ -1,11 +1,10 @@
 import { Key } from "./key";
 import React from "react";
 
-export interface IKeyboard {
-   key?: string;
-   keyVal?: string;
-   bigKey? : boolean;
-   children?: React.ReactNode; 
+export type IKeyboard = {
+   key: string;
+   keyVal: string;
+   bigKey : boolean|string;
  }
 
 export function Keyboard(){
@@ -25,11 +24,11 @@ const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
              })} 
              </div>
              <div className="line3">
-             <Key keyVal={"Enter"} bigKey/>
+             <Key key = "enter" keyVal={"Enter"} bigKey/>
              {keys3.map((key)=>{
                 return  <Key key={key} keyVal={key} bigKey={false}/>;
              })} 
-              <Key keyVal={"Delete"} bigKey/>
+              <Key key ="delete" keyVal={"Delete"} bigKey/>
              </div>
             
         </div>

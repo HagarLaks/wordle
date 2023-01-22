@@ -1,19 +1,18 @@
 import {useContext} from "react";
 import { AppContext } from "../App";
-// import { IUseGame } from "../types/GameTypes";
 import { allKeys } from "./Word";
 import { useGameType } from "../hooks/useGame";
+import { IKeyboard } from "./Keyboard";
 
 
 
-export function Key({ keyVal, bigKey}){
+export function Key({ keyVal, bigKey}:IKeyboard){
         
     const { handleInput } = useContext<useGameType>(AppContext);
     const selectLetter = ()=>{
         
-        console.log(`handleInput with ${keyVal}`)
         if (keyVal !== 'Enter'){
-            handleInput(keyVal);
+        handleInput(keyVal);
             
         }
     }
@@ -22,7 +21,7 @@ export function Key({ keyVal, bigKey}){
 
 
     return(
-        <div className={`key ${color}`}  id={bigKey && "big"} onClick={selectLetter} >{keyVal}</div>
+        <div className={`key ${color} ${bigKey && "big"}`}  onClick={selectLetter} >{keyVal}</div>
     )
 
 }

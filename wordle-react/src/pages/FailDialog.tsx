@@ -1,9 +1,6 @@
-import React , {useState, useContext} from 'react'
-import Button from 'react-bootstrap/Button';
+
 import Modal from 'react-bootstrap/Modal';
-import { AppContext } from '../App';
 import { theWord } from '../components/Word';
-import { useGameType } from '../hooks/useGame';
 
 export default function FailDialog() {
   

@@ -1,4 +1,4 @@
-import React, { useState, useContext , useEffect} from 'react';
+import { useState, useContext , useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../App';
@@ -20,7 +20,7 @@ const {setUser, user, setUserSubmitted} = useContext<useGameType>(AppContext)
  
 
 let input = "";
-const handleInputUser = (e) =>{
+const handleInputUser = (e: { target: { value: string; }; }) =>{
   input = e.target.value;
 
 

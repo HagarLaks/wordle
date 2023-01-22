@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import { useState} from "react";
 import { gameBoard, theWord , feedbackBoard, allKeys} from "../components/Word";
 import { IcurrentAttempt } from "../types/GameTypes";
@@ -16,7 +15,7 @@ export type useGameType ={
   handleKeyDown: (event:KeyboardEvent)=> void
   setUser: React.Dispatch<React.SetStateAction<string | null>>
   setUserSubmitted: React.Dispatch<React.SetStateAction<boolean>>
-  
+  handleInputUser: (e: any) => void
 } 
 
 export function useGame(){

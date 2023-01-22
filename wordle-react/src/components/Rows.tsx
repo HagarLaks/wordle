@@ -1,17 +1,12 @@
-import React, {useContext, useEffect} from 'react'
+import  {useContext, useEffect} from 'react'
 import { gameBoard } from './Word'
 import { Cell } from './Cell'
 import { AppContext } from "../App"
-import { type } from '@testing-library/user-event/dist/type'
 import { useGameType } from '../hooks/useGame'
 
-export type letterProps={
-  letterPossision:number
-  attemptNum: number
-  key: string
-}
+
 export function Rows() {
-  const {guessFeedback, handleKeyDown} = useContext<useGameType>(AppContext)
+  const { handleKeyDown} = useContext<useGameType>(AppContext)
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
@@ -28,8 +23,8 @@ export function Rows() {
                     {(gameBoard[0]).map((cell,j)=>(
                     <Cell 
                     key={j}
-                    letterPosision={j}
-                    attemptNum={'0'}
+                    letterPosition={j}
+                    attemptNum={0}
                     />
                     ))}
                     
@@ -38,8 +33,8 @@ export function Rows() {
       {(gameBoard[1]).map((cell,j)=>(
             <Cell 
             key={j*2}
-            letterPosision={j}
-            attemptNum={'1'}
+            letterPosition={j}
+            attemptNum={1}
             />
             ))}
       
@@ -48,8 +43,8 @@ export function Rows() {
       {(gameBoard[2]).map((cell,j)=>(
       <Cell 
       key={j*3}
-      letterPosision={j}
-      attemptNum={'2'}
+      letterPosition={j}
+      attemptNum={2}
 
       />
       ))}
@@ -59,8 +54,8 @@ export function Rows() {
       {(gameBoard[3]).map((cell,j)=>(
       <Cell 
       key={j*4}
-      letterPosision={j}
-      attemptNum={'3'}
+      letterPosition={j}
+      attemptNum={3}
 
       />
       ))}
@@ -70,8 +65,8 @@ export function Rows() {
       {(gameBoard[4]).map((cell,j)=>(
       <Cell 
       key={j*5}
-      letterPosision={j}
-      attemptNum={'4'}
+      letterPosition={j}
+      attemptNum={4}
 
       />
       ))}
@@ -81,8 +76,8 @@ export function Rows() {
       {(gameBoard[5]).map((cell,j)=>(
       <Cell 
       key={j*6}
-      letterPosision={j}
-      attemptNum={'5'}
+      letterPosition={j}
+      attemptNum={5}
 
       />
       ))}
