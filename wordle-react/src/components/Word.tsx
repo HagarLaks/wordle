@@ -16,6 +16,8 @@ export const feedbackBoard:string[][] = [ ["","","","",""],
 
 export const theWord:string[] = ['G','U','E','S','S'];
 
+
+
 type KeyMap={
     [char:string]:string;
 }

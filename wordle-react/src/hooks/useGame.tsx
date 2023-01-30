@@ -1,5 +1,5 @@
 import { useState} from "react";
-import { gameBoard, theWord , feedbackBoard, allKeys} from "../components/Word";
+import { gameBoard , feedbackBoard, allKeys} from "../components/Word";
 import { IcurrentAttempt } from "../types/GameTypes";
   
 
@@ -50,7 +50,7 @@ export function useGame(){
                   if (currentAttempt.letterPos === 5) {
                         
                             handleGuess(currentAttempt.attempt)
-                            handleColorKeys(currentAttempt.attempt)
+                            // handleColorKeys(currentAttempt.attempt)
                             setCurrentAttempt({attempt: currentAttempt.attempt +=1, letterPos: currentAttempt.letterPos = 0})
                 
                               }
@@ -68,7 +68,9 @@ export function useGame(){
       
   
     }
-  
+    const getWordIndex =async () => {
+      const response = await fetch('http://localhost:3333/thewordindex');
+    }
     const sendWord = async (word: string) => {
       const response = await fetch('http://localhost:3333/word', {
         method: 'POST',
@@ -78,54 +80,58 @@ export function useGame(){
         body: JSON.stringify({ word }),
       });
       const data = await response.json();
-      console.log(data);
+      console.log("data in send word function", data);
     };
-    let guessArray = ["","","","",""]
-    const fetchGuessArray = async () => {
+
+    // let guessArray = ["","","","",""]
+    const fetchGuessArray = async (rowNum:number) => {
+      let guessArray = feedbackBoard[rowNum]
       const response = await fetch('http://localhost:3333/feedbackarray');
-      const data = await response.json();
-      console.log("logged",data.guessArray);
+      const data = await response.json()
       guessArray = data.guessArray
-      console.log(guessArray)
+      console.log("guessarray in fetchGuessArray function",guessArray)
+      const newFeedback = [...guessFeedback]
+      newFeedback[rowNum] = guessArray
+      setGuessFeedback(newFeedback);
+        console.log("newFeedback", newFeedback)
+        
+
+        
+
     };
+
+    
     
     
     const handleGuess = (rowNum:number)=>{
-        
+        if (rowNum===0){
+          getWordIndex()
+        }
         // const geussArray = feedbackBoard[rowNum]
         sendWord(gameBoard[rowNum].join(''))
-        fetchGuessArray()
+        fetchGuessArray(rowNum).then(() => handleColorKeys(rowNum));
+        // handleColorKeys(rowNum)
+        // sendWord(gameBoard[rowNum].join(''))
+        // .then(() => fetchGuessArray(rowNum))
+        // .then(() => handleColorKeys(rowNum));
 
-        // for (let i = 0; i < 5;i+=1) {
-        //    const indexToCompare = theWord.indexOf(gameBoard[rowNum][i])
-        //    if (indexToCompare === -1){
-        //      geussArray[i] = "error"
-        //    } else if (theWord[i] === gameBoard[rowNum][i]){
-        //     geussArray[i] = "correct"
-        //    } else {
-        //     geussArray[i] = "almost"
-        //    }
-        // }
-        
-        const newFeedback = [...guessFeedback]
-        newFeedback[rowNum] = guessArray
-        setGuessFeedback(newFeedback);
         setTimeout(() => {
           handleSuccessorFail(rowNum)
         }, 1000);
         
-
+          
 
         }
    
     const handleSuccessorFail= (rowNum:number)=>{
+      let guessArray = feedbackBoard[rowNum]
+
       const targetCorrect = "correct";
       const includesOnlyCorrect = guessArray.every((word) => word === targetCorrect);
       
       if ((currentAttempt.attempt===6)&&(!includesOnlyCorrect)){
         SetFail(true)
       }
-
      
       if (includesOnlyCorrect){
         setSeccess(true)
@@ -134,18 +140,20 @@ export function useGame(){
       
     }
 
+    
     const handleColorKeys = (rowNum:number)=>{
-    const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
-      
-      const recentFeedback = feedbackBoard[rowNum]
-      Object.keys(allKeys).forEach((letter)=>{
-        if (recentGuesse.includes(letter)){
-          const tempIndex = recentGuesse.indexOf(letter)
-          allKeys[letter] = recentFeedback[tempIndex]
-        } 
-      })
-
-    }
+      const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
+        console.log("recentguess",recentGuesse)
+        const recentFeedback = feedbackBoard[rowNum]
+        console.log("recentfeedback", recentFeedback)
+        Object.keys(allKeys).forEach((letter)=>{
+          if (recentGuesse.includes(letter)){
+            const tempIndex = recentGuesse.indexOf(letter)
+            allKeys[letter] = recentFeedback[tempIndex]
+            console.log(allKeys)
+          } 
+        })
+      }
 
     
   
@@ -163,7 +171,8 @@ export function useGame(){
     handleInput,
     handleKeyDown,
     handleGuess,
-    handleSuccessorFail
+    handleSuccessorFail,
+    
     
 
   }  
