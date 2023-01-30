@@ -1,5 +1,4 @@
 import { Key } from "./key";
-import React from "react";
 
 export type IKeyboard = {
    key: string;

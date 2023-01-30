@@ -1,5 +1,4 @@
-import React , {useState, useContext} from 'react'
-import Button from 'react-bootstrap/Button';
+import  { useContext} from 'react'
 import Modal from 'react-bootstrap/Modal';
 import { AppContext } from '../App';
 import { theWord } from '../components/Word';

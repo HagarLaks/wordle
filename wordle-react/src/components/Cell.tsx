@@ -1,5 +1,4 @@
 import { gameBoard , feedbackBoard} from "./Word";
-import { useGameType } from "../hooks/useGame";
 import { letterProps } from "../types/GameTypes";
 
 
