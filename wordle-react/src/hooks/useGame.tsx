@@ -83,31 +83,30 @@ export function useGame(){
       console.log("data in send word function", data);
     };
 
-    // let guessArray = ["","","","",""]
+    let guessArray = feedbackBoard[0]
     const fetchGuessArray = async (rowNum:number) => {
-      let guessArray = feedbackBoard[rowNum]
       const response = await fetch('http://localhost:3333/feedbackarray');
       const data = await response.json()
       guessArray = data.guessArray
       console.log("guessarray in fetchGuessArray function",guessArray)
-      const newFeedback = [...guessFeedback]
-      newFeedback[rowNum] = guessArray
-      setGuessFeedback(newFeedback);
-        console.log("newFeedback", newFeedback)
-        
-
-        
+      updateGuessFeedback(guessArray,rowNum)
 
     };
 
     
-    
+    const updateGuessFeedback = (newArray:string[],rowNum:number)=>{
+      const newFeedback = [...guessFeedback]
+      newFeedback[rowNum] = newArray
+      setGuessFeedback(newFeedback);
+        console.log("newFeedback", newFeedback)
+        console.log("guessFeedback", guessFeedback)
+        
+    }
     
     const handleGuess = (rowNum:number)=>{
         if (rowNum===0){
           getWordIndex()
         }
-        // const geussArray = feedbackBoard[rowNum]
         sendWord(gameBoard[rowNum].join(''))
         fetchGuessArray(rowNum).then(() => handleColorKeys(rowNum));
         // handleColorKeys(rowNum)
@@ -124,8 +123,6 @@ export function useGame(){
         }
    
     const handleSuccessorFail= (rowNum:number)=>{
-      let guessArray = feedbackBoard[rowNum]
-
       const targetCorrect = "correct";
       const includesOnlyCorrect = guessArray.every((word) => word === targetCorrect);
       
@@ -144,7 +141,7 @@ export function useGame(){
     const handleColorKeys = (rowNum:number)=>{
       const recentGuesse = gameBoard[rowNum][0]+ gameBoard[rowNum][1]+gameBoard[rowNum][2]+gameBoard[rowNum][3]+gameBoard[rowNum][4]
         console.log("recentguess",recentGuesse)
-        const recentFeedback = feedbackBoard[rowNum]
+        const recentFeedback = guessArray
         console.log("recentfeedback", recentFeedback)
         Object.keys(allKeys).forEach((letter)=>{
           if (recentGuesse.includes(letter)){
