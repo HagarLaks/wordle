@@ -68,19 +68,20 @@ export function useGame(){
       
   
     }
-    const getWordIndex =async () => {
+    const getWordIndex = async () => {
       const response = await fetch('http://localhost:3333/thewordindex');
     }
-    const sendWord = async (word: string) => {
+    const sendGuesstoServer = async (word: string) => {
       const response = await fetch('http://localhost:3333/word', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ word }),
+        
       });
-      const data = await response.json();
-      console.log("data in send word function", data);
+      // const data = await response.json();
+      // console.log("guess sent is", data);
     };
 
     let guessArray = feedbackBoard[0]
@@ -107,7 +108,7 @@ export function useGame(){
         if (rowNum===0){
           getWordIndex()
         }
-        sendWord(gameBoard[rowNum].join(''))
+        sendGuesstoServer(gameBoard[rowNum].join(''))
         fetchGuessArray(rowNum).then(() => handleColorKeys(rowNum));
         // handleColorKeys(rowNum)
         // sendWord(gameBoard[rowNum].join(''))
